@@ -1,0 +1,541 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="SigDaddy — Professional Email Signatures for Microsoft 365" description="Automatically inject branded email signatures across your organisation. No plugins, no client-side software. Works seamlessly with Microsoft 365.">
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center overflow-hidden pt-20">
+    <!-- Background gradient orbs -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-gradient-to-br from-green-200/30 to-green-400/20 blur-3xl animate-float"></div>
+      <div class="absolute top-1/2 -left-20 w-72 h-72 rounded-full bg-gradient-to-tr from-green-100/20 to-emerald-200/10 blur-3xl animate-float-delay"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-8 py-24 lg:py-32">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Left: Copy -->
+        <div>
+          <div class="reveal" data-animation="fade-up">
+            <div class="inline-flex items-center gap-2 rounded-full bg-green-50 border border-green-200 px-4 py-1.5 mb-8">
+              <span class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+              <span class="text-xs font-medium text-green-700">Exclusively for Microsoft 365</span>
+            </div>
+          </div>
+
+          <h1 class="reveal text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-brand-black" data-animation="fade-up" style="animation-delay: 100ms">
+            Your emails,<br />
+            <span class="brand-gradient-text">dressed right.</span>
+          </h1>
+
+          <p class="reveal mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed max-w-lg" data-animation="fade-up" style="animation-delay: 200ms">
+            Automatically inject branded, consistent email signatures across your entire organisation. No plugins. No client-side software. Just beautiful, on-brand emails — every time.
+          </p>
+
+          <div class="reveal mt-10 flex flex-col sm:flex-row gap-4" data-animation="fade-up" style="animation-delay: 300ms">
+            <a href="https://portal.sigdaddy.com" class="brand-gradient glow-green rounded-full px-8 py-4 text-base font-semibold text-white text-center transition-all hover:scale-[1.02] active:scale-[0.98]">
+              Get Started Free
+            </a>
+            <a href="#how-it-works" class="rounded-full border border-gray-300 px-8 py-4 text-base font-semibold text-brand-black text-center transition-all hover:border-gray-400 hover:bg-gray-50">
+              See How It Works
+            </a>
+          </div>
+
+          <div class="reveal mt-8 flex items-center gap-6 text-sm text-gray-500" data-animation="fade-up" style="animation-delay: 400ms">
+            <div class="flex items-center gap-2">
+              <svg class="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              No credit card required
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              5 minute setup
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual -->
+        <div class="reveal hidden lg:block" data-animation="scale-in" style="animation-delay: 300ms">
+          <div class="relative">
+            <!-- Email card mockup -->
+            <div class="rounded-2xl bg-white shadow-2xl shadow-gray-200/50 border border-gray-100 p-8 transform hover:scale-[1.01] transition-transform duration-500">
+              <!-- Email header -->
+              <div class="flex items-center gap-3 pb-4 border-b border-gray-100">
+                <div class="h-10 w-10 rounded-full brand-gradient flex items-center justify-center text-white font-bold text-sm">GP</div>
+                <div>
+                  <p class="text-sm font-semibold text-brand-black">Greg Phillips</p>
+                  <p class="text-xs text-gray-400">greg@company.com</p>
+                </div>
+              </div>
+              <!-- Email body -->
+              <div class="mt-4 space-y-3">
+                <div class="h-3 bg-gray-100 rounded-full w-3/4"></div>
+                <div class="h-3 bg-gray-100 rounded-full w-full"></div>
+                <div class="h-3 bg-gray-100 rounded-full w-5/6"></div>
+                <div class="h-3 bg-gray-100 rounded-full w-2/3"></div>
+              </div>
+              <!-- Signature preview -->
+              <div class="mt-6 pt-4 border-t border-gray-100">
+                <div class="flex items-start gap-4">
+                  <div class="h-16 w-16 rounded-xl brand-gradient flex-shrink-0 animate-float"></div>
+                  <div class="space-y-1.5">
+                    <p class="text-sm font-bold text-brand-black">Greg Phillips</p>
+                    <p class="text-xs text-gray-500">Chief Executive Officer</p>
+                    <p class="text-xs text-green-600 font-medium">company.com</p>
+                    <div class="flex gap-2 mt-2">
+                      <div class="h-5 w-5 rounded-full bg-gray-100"></div>
+                      <div class="h-5 w-5 rounded-full bg-gray-100"></div>
+                      <div class="h-5 w-5 rounded-full bg-gray-100"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating badge -->
+            <div class="absolute -bottom-4 -left-4 rounded-xl bg-white shadow-lg border border-gray-100 px-4 py-3 animate-float-delay">
+              <div class="flex items-center gap-2">
+                <svg class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span class="text-sm font-medium text-brand-black">Signature applied</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted by / Microsoft badge -->
+  <section class="border-y border-gray-100 bg-gray-50/50">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 py-12">
+      <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16" data-animation="fade-in">
+        <div class="flex items-center gap-3">
+          <svg class="h-8 w-auto text-[#00A4EF]" viewBox="0 0 23 23" fill="currentColor">
+            <path d="M0 0h11v11H0zM12 0h11v11H12zM0 12h11v11H0zM12 12h11v11H12z" />
+          </svg>
+          <div>
+            <p class="text-sm font-semibold text-brand-black">Microsoft 365</p>
+            <p class="text-xs text-gray-500">Built exclusively for M365</p>
+          </div>
+        </div>
+        <div class="h-8 w-px bg-gray-200 hidden sm:block"></div>
+        <div class="flex items-center gap-3">
+          <svg class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+          <div>
+            <p class="text-sm font-semibold text-brand-black">Enterprise Secure</p>
+            <p class="text-xs text-gray-500">Zero email content stored</p>
+          </div>
+        </div>
+        <div class="h-8 w-px bg-gray-200 hidden sm:block"></div>
+        <div class="flex items-center gap-3">
+          <svg class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+          <div>
+            <p class="text-sm font-semibold text-brand-black">Zero Touch Setup</p>
+            <p class="text-xs text-gray-500">Up and running in minutes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="benefits" class="py-24 lg:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <p class="reveal text-sm font-semibold uppercase tracking-wider text-green-600 mb-3" data-animation="fade-up">Benefits</p>
+        <h2 class="reveal text-4xl sm:text-5xl font-bold tracking-tight text-brand-black" data-animation="fade-up">
+          Why teams choose SigDaddy
+        </h2>
+        <p class="reveal mt-4 text-lg text-gray-600" data-animation="fade-up">
+          From brand consistency to engagement tracking, SigDaddy transforms your team's email communication.
+        </p>
+      </div>
+
+      <!-- Benefit cards -->
+      <div class="mt-20 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Benefit 1: Brand Consistency -->
+        <div class="reveal group" data-animation="fade-up">
+          <div class="rounded-2xl bg-white border border-gray-100 p-8 h-full transition-all duration-300 hover:shadow-xl hover:shadow-gray-100/50 hover:border-gray-200 hover:-translate-y-1">
+            <div class="h-12 w-12 rounded-xl bg-green-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" /></svg>
+            </div>
+            <h3 class="text-xl font-bold text-brand-black mb-3">Total Brand Consistency</h3>
+            <p class="text-gray-600 leading-relaxed mb-4">Every email from every employee carries your brand. Professionally designed signatures, applied automatically.</p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                15+ professional templates
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                AI-powered signature generator
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Custom HTML template editor
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Benefit 2: Zero IT Overhead -->
+        <div class="reveal group" data-animation="fade-up" style="animation-delay: 100ms">
+          <div class="rounded-2xl bg-white border border-gray-100 p-8 h-full transition-all duration-300 hover:shadow-xl hover:shadow-gray-100/50 hover:border-gray-200 hover:-translate-y-1">
+            <div class="h-12 w-12 rounded-xl bg-green-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>
+            </div>
+            <h3 class="text-xl font-bold text-brand-black mb-3">Zero IT Overhead</h3>
+            <p class="text-gray-600 leading-relaxed mb-4">No software to install, configure, or maintain. SigDaddy works server-side — completely invisible to your users.</p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                No desktop agents or browser extensions
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Works with Outlook, web, mobile
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Automatic user data from Microsoft 365
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Benefit 3: Email Intelligence -->
+        <div class="reveal group" data-animation="fade-up" style="animation-delay: 200ms">
+          <div class="rounded-2xl bg-white border border-gray-100 p-8 h-full transition-all duration-300 hover:shadow-xl hover:shadow-gray-100/50 hover:border-gray-200 hover:-translate-y-1">
+            <div class="h-12 w-12 rounded-xl bg-green-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
+            </div>
+            <h3 class="text-xl font-bold text-brand-black mb-3">Email Intelligence</h3>
+            <p class="text-gray-600 leading-relaxed mb-4">Know when your emails are read and links clicked. Real-time notifications keep your team in the loop.</p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Open and click tracking
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Push notifications
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Smart bot detection
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Benefit 4: Complete Control -->
+        <div class="reveal group" data-animation="fade-up">
+          <div class="rounded-2xl bg-white border border-gray-100 p-8 h-full transition-all duration-300 hover:shadow-xl hover:shadow-gray-100/50 hover:border-gray-200 hover:-translate-y-1">
+            <div class="h-12 w-12 rounded-xl bg-green-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+            </div>
+            <h3 class="text-xl font-bold text-brand-black mb-3">Complete Control</h3>
+            <p class="text-gray-600 leading-relaxed mb-4">Group-based signatures, user exclusions, per-domain templates — you decide who gets what.</p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                User groups with override signatures
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Exclude specific users
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Per-email opt-out via category
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Benefit 5: Dynamic Content -->
+        <div class="reveal group" data-animation="fade-up" style="animation-delay: 100ms">
+          <div class="rounded-2xl bg-white border border-gray-100 p-8 h-full transition-all duration-300 hover:shadow-xl hover:shadow-gray-100/50 hover:border-gray-200 hover:-translate-y-1">
+            <div class="h-12 w-12 rounded-xl bg-green-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" /></svg>
+            </div>
+            <h3 class="text-xl font-bold text-brand-black mb-3">Dynamic Content</h3>
+            <p class="text-gray-600 leading-relaxed mb-4">Personalise signatures automatically using live Microsoft 365 data. Add banners, announcements, and OOO messages.</p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                12 merge fields from M365 profiles
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                HTML snippets (banners, promos)
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Out-of-office smart signatures
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Benefit 6: Enterprise Security -->
+        <div class="reveal group" data-animation="fade-up" style="animation-delay: 200ms">
+          <div class="rounded-2xl bg-white border border-gray-100 p-8 h-full transition-all duration-300 hover:shadow-xl hover:shadow-gray-100/50 hover:border-gray-200 hover:-translate-y-1">
+            <div class="h-12 w-12 rounded-xl bg-green-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
+            </div>
+            <h3 class="text-xl font-bold text-brand-black mb-3">Enterprise Security</h3>
+            <p class="text-gray-600 leading-relaxed mb-4">Your email content never touches our servers. We preserve DKIM signing and use Microsoft's own Graph API.</p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                DKIM signature preserved
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Zero email content stored
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Full audit trail
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-24 lg:py-32 bg-gray-50/50">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <p class="reveal text-sm font-semibold uppercase tracking-wider text-green-600 mb-3" data-animation="fade-up">How It Works</p>
+        <h2 class="reveal text-4xl sm:text-5xl font-bold tracking-tight text-brand-black" data-animation="fade-up">
+          Three steps. Five minutes.
+        </h2>
+        <p class="reveal mt-4 text-lg text-gray-600" data-animation="fade-up">
+          SigDaddy intercepts outbound email from your Microsoft 365 tenant, injects your branded signature, and delivers the email — all in milliseconds.
+        </p>
+      </div>
+
+      <div class="mt-20 grid md:grid-cols-3 gap-12">
+        <!-- Step 1 -->
+        <div class="reveal text-center" data-animation="fade-up">
+          <div class="relative mx-auto mb-8">
+            <div class="h-20 w-20 rounded-2xl brand-gradient mx-auto flex items-center justify-center text-white text-3xl font-bold">1</div>
+          </div>
+          <h3 class="text-xl font-bold text-brand-black mb-3">Connect Your Tenant</h3>
+          <p class="text-gray-600 leading-relaxed">Sign in with your Microsoft admin account. SigDaddy configures a mail flow connector in Exchange Online — no manual setup required.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="reveal text-center" data-animation="fade-up" style="animation-delay: 150ms">
+          <div class="relative mx-auto mb-8">
+            <div class="h-20 w-20 rounded-2xl brand-gradient mx-auto flex items-center justify-center text-white text-3xl font-bold">2</div>
+          </div>
+          <h3 class="text-xl font-bold text-brand-black mb-3">Design Your Signatures</h3>
+          <p class="text-gray-600 leading-relaxed">Choose from our gallery of 15+ templates, use the AI generator, or build your own with our HTML editor. Merge fields auto-fill from M365.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="reveal text-center" data-animation="fade-up" style="animation-delay: 300ms">
+          <div class="relative mx-auto mb-8">
+            <div class="h-20 w-20 rounded-2xl brand-gradient mx-auto flex items-center justify-center text-white text-3xl font-bold">3</div>
+          </div>
+          <h3 class="text-xl font-bold text-brand-black mb-3">Emails Just Work</h3>
+          <p class="text-gray-600 leading-relaxed">Every outbound email is automatically signed. Track opens and clicks, manage from the portal, and never worry about inconsistent signatures again.</p>
+        </div>
+      </div>
+
+      <!-- Architecture diagram simplified -->
+      <div class="reveal mt-20 max-w-3xl mx-auto" data-animation="scale-in">
+        <div class="rounded-2xl bg-white border border-gray-200 p-8 lg:p-12">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-6 text-center">
+            <div class="flex flex-col items-center gap-2">
+              <div class="h-14 w-14 rounded-xl bg-blue-50 flex items-center justify-center">
+                <svg class="h-7 w-7 text-blue-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+              </div>
+              <p class="text-sm font-semibold text-brand-black">User sends email</p>
+              <p class="text-xs text-gray-400">Outlook / Web / Mobile</p>
+            </div>
+
+            <svg class="h-6 w-6 text-gray-300 shrink-0 rotate-90 sm:rotate-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+
+            <div class="flex flex-col items-center gap-2">
+              <div class="h-14 w-14 rounded-xl bg-green-50 flex items-center justify-center">
+                <svg class="h-7 w-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" /></svg>
+              </div>
+              <p class="text-sm font-semibold text-brand-black">SigDaddy processes</p>
+              <p class="text-xs text-gray-400">Signature injected</p>
+            </div>
+
+            <svg class="h-6 w-6 text-gray-300 shrink-0 rotate-90 sm:rotate-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+
+            <div class="flex flex-col items-center gap-2">
+              <div class="h-14 w-14 rounded-xl bg-purple-50 flex items-center justify-center">
+                <svg class="h-7 w-7 text-purple-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+              </div>
+              <p class="text-sm font-semibold text-brand-black">Recipient receives</p>
+              <p class="text-xs text-gray-400">Branded email delivered</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-24 lg:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <p class="reveal text-sm font-semibold uppercase tracking-wider text-green-600 mb-3" data-animation="fade-up">Pricing</p>
+        <h2 class="reveal text-4xl sm:text-5xl font-bold tracking-tight text-brand-black" data-animation="fade-up">
+          Simple, transparent pricing
+        </h2>
+        <p class="reveal mt-4 text-lg text-gray-600" data-animation="fade-up">
+          Pay per mailbox, per month. Every mailbox includes 50 emails per day. Need more? Just $0.01 per additional email.
+        </p>
+      </div>
+
+      <div class="mt-16 max-w-lg mx-auto">
+        <div class="reveal" data-animation="scale-in">
+          <div class="rounded-3xl bg-white border-2 border-green-200 shadow-xl shadow-green-100/20 p-10 relative overflow-hidden">
+            <!-- Popular badge -->
+            <div class="absolute top-0 right-0">
+              <div class="brand-gradient text-white text-xs font-bold uppercase tracking-wider px-6 py-1.5 rounded-bl-2xl">
+                Per Mailbox
+              </div>
+            </div>
+
+            <div class="text-center">
+              <h3 class="text-2xl font-bold text-brand-black">SigDaddy</h3>
+              <p class="text-gray-500 mt-1">Everything you need</p>
+
+              <div class="mt-8 flex items-baseline justify-center gap-1">
+                <span class="text-6xl font-extrabold tracking-tight text-brand-black">$2</span>
+                <span class="text-xl text-gray-500">/mailbox/month</span>
+              </div>
+
+              <p class="mt-3 text-sm text-gray-500">50 emails/day included per mailbox</p>
+            </div>
+
+            <ul class="mt-10 space-y-4">
+              <li class="flex items-center gap-3">
+                <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span class="text-sm text-gray-700">Professional signature templates</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span class="text-sm text-gray-700">AI signature generator</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span class="text-sm text-gray-700">Open &amp; click tracking</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span class="text-sm text-gray-700">Push notifications</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span class="text-sm text-gray-700">HTML snippets &amp; banners</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span class="text-sm text-gray-700">User groups &amp; exclusions</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span class="text-sm text-gray-700">Full audit trail</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span class="text-sm text-gray-700">Overage: $0.01 per extra email</span>
+              </li>
+            </ul>
+
+            <div class="mt-10">
+              <a href="https://portal.sigdaddy.com" class="block w-full brand-gradient glow-green rounded-full py-4 text-center font-semibold text-white text-base transition-all hover:scale-[1.02] active:scale-[0.98]">
+                Get Started Free
+              </a>
+            </div>
+
+            <p class="mt-4 text-center text-xs text-gray-400">
+              Available on <a href="https://azuremarketplace.microsoft.com" target="_blank" rel="noopener" class="underline hover:text-gray-600">Azure Marketplace</a> and <a href="https://appsource.microsoft.com" target="_blank" rel="noopener" class="underline hover:text-gray-600">Microsoft AppSource</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Microsoft 365 Only -->
+  <section class="py-24 lg:py-32 bg-brand-black text-white overflow-hidden">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="reveal text-sm font-semibold uppercase tracking-wider text-green-400 mb-4" data-animation="fade-up">Built for Microsoft</p>
+          <h2 class="reveal text-4xl sm:text-5xl font-bold tracking-tight" data-animation="fade-up">
+            Exclusively for<br />Microsoft 365
+          </h2>
+          <p class="reveal mt-6 text-lg text-gray-400 leading-relaxed" data-animation="fade-up">
+            SigDaddy is purpose-built for Microsoft 365. We use the Microsoft Graph API to send emails, preserving your DKIM signatures and SPF alignment. No third-party SMTP relay. No deliverability risks.
+          </p>
+          <div class="reveal mt-8 flex flex-col sm:flex-row gap-4" data-animation="fade-up">
+            <a href="https://portal.sigdaddy.com" class="brand-gradient glow-green rounded-full px-8 py-4 text-base font-semibold text-white text-center transition-all hover:scale-[1.02]">
+              Sign In with Microsoft
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal flex items-center justify-center" data-animation="scale-in">
+          <div class="relative">
+            <!-- Microsoft logo grid -->
+            <div class="grid grid-cols-2 gap-3 w-48 h-48">
+              <div class="rounded-2xl bg-[#F25022] transition-transform hover:scale-105"></div>
+              <div class="rounded-2xl bg-[#7FBA00] transition-transform hover:scale-105"></div>
+              <div class="rounded-2xl bg-[#00A4EF] transition-transform hover:scale-105"></div>
+              <div class="rounded-2xl bg-[#FFB900] transition-transform hover:scale-105"></div>
+            </div>
+            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap">
+              <p class="text-sm font-semibold text-gray-400">Microsoft 365</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 lg:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="reveal" data-animation="scale-in">
+        <div class="rounded-3xl brand-gradient p-12 lg:p-20 text-center relative overflow-hidden">
+          <!-- Decorative -->
+          <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-10 -right-10 w-60 h-60 rounded-full bg-white/10 blur-2xl"></div>
+            <div class="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-white/10 blur-2xl"></div>
+          </div>
+
+          <div class="relative">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+              Ready to dress your emails right?
+            </h2>
+            <p class="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
+              Join organisations that trust SigDaddy to deliver consistent, professional email signatures across every email, every device, every time.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="https://portal.sigdaddy.com" class="bg-white text-green-700 rounded-full px-10 py-4 text-base font-semibold transition-all hover:bg-gray-50 hover:scale-[1.02] active:scale-[0.98]">
+                Get Started Free
+              </a>
+              <a href="https://azuremarketplace.microsoft.com" target="_blank" rel="noopener" class="rounded-full border-2 border-white/30 px-10 py-4 text-base font-semibold text-white transition-all hover:bg-white/10 hover:border-white/50">
+                View on Azure Marketplace
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Base>

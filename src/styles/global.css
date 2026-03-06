@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/* SigDaddy Brand Theme Overrides */
+@theme {
+  --color-brand-green-start: #59A52C;
+  --color-brand-green-end: #6FCA3A;
+  --color-brand-green-dark: #437D21;
+  --color-brand-black: #111111;
+  --color-brand-dark-grey: #2A2A2A;
+  --color-brand-light-grey: #F7FBFC;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Scroll-triggered reveal animations */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(2rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slide-left {
+  from { opacity: 0; transform: translateX(3rem); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(-3rem); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.visible {
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible[data-animation="fade-up"] { animation: fade-up 0.8s; }
+.reveal.visible[data-animation="fade-in"] { animation: fade-in 0.8s; }
+.reveal.visible[data-animation="scale-in"] { animation: scale-in 0.7s; }
+.reveal.visible[data-animation="slide-left"] { animation: slide-left 0.8s; }
+.reveal.visible[data-animation="slide-right"] { animation: slide-right 0.8s; }
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* Brand gradient utility */
+.brand-gradient {
+  background: linear-gradient(135deg, #59A52C, #6FCA3A);
+}
+
+.brand-gradient-text {
+  background: linear-gradient(135deg, #59A52C, #6FCA3A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Floating animation for hero visuals */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delay {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Subtle glow for CTAs */
+.glow-green {
+  box-shadow: 0 0 30px rgba(89, 165, 44, 0.3);
+}
+
+.glow-green:hover {
+  box-shadow: 0 0 40px rgba(89, 165, 44, 0.5);
+}

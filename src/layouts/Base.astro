@@ -1,0 +1,195 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+}
+
+const { title, description, canonical } = Astro.props;
+const siteUrl = 'https://www.sigdaddy.com';
+const ogImage = `${siteUrl}/og-image.png`;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <meta name="author" content="SigDaddy by TouchBasePro" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical || siteUrl} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:site_name" content="SigDaddy" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Canonical -->
+  {canonical && <link rel="canonical" href={canonical} />}
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <title>{title}</title>
+</head>
+<body class="font-sans text-brand-black bg-white antialiased">
+  <!-- Navigation -->
+  <nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="flex h-20 items-center justify-between">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2">
+          <img src="/logo-colour.png" alt="SigDaddy" class="h-8 w-auto" />
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="/#benefits" class="text-sm font-medium text-gray-600 hover:text-brand-black transition-colors">Benefits</a>
+          <a href="/#how-it-works" class="text-sm font-medium text-gray-600 hover:text-brand-black transition-colors">How It Works</a>
+          <a href="/#pricing" class="text-sm font-medium text-gray-600 hover:text-brand-black transition-colors">Pricing</a>
+          <a href="https://portal.sigdaddy.com" class="brand-gradient glow-green rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-all hover:opacity-90">
+            Sign In
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-brand-black" aria-label="Toggle menu">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-100">
+      <div class="px-6 py-4 space-y-3">
+        <a href="/#benefits" class="block text-sm font-medium text-gray-600 hover:text-brand-black py-2">Benefits</a>
+        <a href="/#how-it-works" class="block text-sm font-medium text-gray-600 hover:text-brand-black py-2">How It Works</a>
+        <a href="/#pricing" class="block text-sm font-medium text-gray-600 hover:text-brand-black py-2">Pricing</a>
+        <a href="https://portal.sigdaddy.com" class="block brand-gradient rounded-full px-6 py-2.5 text-sm font-semibold text-white text-center">
+          Sign In
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brand-black text-white">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <!-- Brand -->
+        <div class="md:col-span-1">
+          <img src="/logo-white.png" alt="SigDaddy" class="h-8 w-auto mb-4" />
+          <p class="text-sm text-gray-400 leading-relaxed">Your emails, dressed right. Professional email signatures for Microsoft 365.</p>
+          <p class="text-xs text-gray-500 mt-4">A TouchBasePro product</p>
+        </div>
+
+        <!-- Product -->
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">Product</h4>
+          <ul class="space-y-2">
+            <li><a href="/#benefits" class="text-sm text-gray-300 hover:text-white transition-colors">Benefits</a></li>
+            <li><a href="/#how-it-works" class="text-sm text-gray-300 hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="/#pricing" class="text-sm text-gray-300 hover:text-white transition-colors">Pricing</a></li>
+            <li><a href="https://portal.sigdaddy.com" class="text-sm text-gray-300 hover:text-white transition-colors">Customer Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Marketplace -->
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">Get SigDaddy</h4>
+          <ul class="space-y-2">
+            <li><a href="https://azuremarketplace.microsoft.com" target="_blank" rel="noopener" class="text-sm text-gray-300 hover:text-white transition-colors">Azure Marketplace</a></li>
+            <li><a href="https://appsource.microsoft.com" target="_blank" rel="noopener" class="text-sm text-gray-300 hover:text-white transition-colors">Microsoft AppSource</a></li>
+            <li><a href="https://portal.sigdaddy.com" class="text-sm text-gray-300 hover:text-white transition-colors">Sign In with Microsoft</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="/privacy" class="text-sm text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms" class="text-sm text-gray-300 hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="mailto:support@sigdaddy.com" class="text-sm text-gray-300 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-gray-500">&copy; {new Date().getFullYear()} TouchBasePro (Pty) Ltd. All rights reserved.</p>
+        <div class="flex items-center gap-3">
+          <span class="text-xs text-gray-500">Works exclusively with</span>
+          <svg class="h-5 w-auto text-gray-400" viewBox="0 0 23 23" fill="currentColor">
+            <path d="M0 0h11v11H0zM12 0h11v11H12zM0 12h11v11H0zM12 12h11v11H12z" />
+          </svg>
+          <span class="text-xs text-gray-400">Microsoft 365</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll reveal + nav background script -->
+  <script>
+    // Intersection Observer for scroll-triggered animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // Nav background on scroll
+    const nav = document.getElementById('nav');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const scroll = window.scrollY;
+      if (scroll > 50) {
+        nav?.classList.add('bg-white/90', 'backdrop-blur-lg', 'shadow-sm');
+      } else {
+        nav?.classList.remove('bg-white/90', 'backdrop-blur-lg', 'shadow-sm');
+      }
+      lastScroll = scroll;
+    });
+
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on link click
+    mobileMenu?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => mobileMenu?.classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>
