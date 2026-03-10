@@ -42,15 +42,14 @@
 }
 
 .reveal.visible {
-  animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 1;
 }
 
-.reveal.visible[data-animation="fade-up"] { animation: fade-up 0.8s; }
-.reveal.visible[data-animation="fade-in"] { animation: fade-in 0.8s; }
-.reveal.visible[data-animation="scale-in"] { animation: scale-in 0.7s; }
-.reveal.visible[data-animation="slide-left"] { animation: slide-left 0.8s; }
-.reveal.visible[data-animation="slide-right"] { animation: slide-right 0.8s; }
+.reveal.visible[data-animation="fade-up"] { animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.reveal.visible[data-animation="fade-in"] { animation: fade-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.reveal.visible[data-animation="scale-in"] { animation: scale-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.reveal.visible[data-animation="slide-left"] { animation: slide-left 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.reveal.visible[data-animation="slide-right"] { animation: slide-right 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
 /* Stagger delays */
 .delay-100 { animation-delay: 0.1s; }
