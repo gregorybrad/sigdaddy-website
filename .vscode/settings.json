@@ -1,0 +1,6 @@
+{
+  "terminal.integrated.env.windows": {
+    // Azure CLI - separate tokens + active subscription per workspace
+    "AZURE_CONFIG_DIR": "${workspaceFolder}\\.azure"
+  }
+}
