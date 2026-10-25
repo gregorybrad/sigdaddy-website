@@ -1,0 +1,133 @@
+---
+import Base from '../layouts/Base.astro';
+
+// One constant for the Portal base URL.
+const PORTAL_BASE_URL = 'https://portal.sigdaddy.com';
+---
+
+<Base title="DNS check | SigDaddy" description="Check the DNS records for your email domain." noindex={true}>
+  <section class="pt-32 pb-24 lg:pb-32">
+    <div class="mx-auto max-w-2xl px-6 lg:px-8">
+      <p class="text-sm font-semibold uppercase tracking-wider text-green-600 mb-3">Tools</p>
+      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-brand-black">DNS check</h1>
+      <p class="mt-4 text-gray-600">Enter your domain and pick your mail provider. We check your public DNS records.</p>
+
+      <form id="dns-form" class="mt-10 space-y-6" novalidate>
+        <div>
+          <label for="domain" class="block text-sm font-medium text-gray-700 mb-2">Domain</label>
+          <input id="domain" name="domain" type="text" placeholder="example.com" autocomplete="off" autocapitalize="off" spellcheck="false"
+            class="w-full rounded-lg border border-gray-300 px-4 py-3 text-brand-black focus:outline-none focus:ring-2 focus:ring-green-600" />
+        </div>
+        <div>
+          <label for="provider" class="block text-sm font-medium text-gray-700 mb-2">Mail provider</label>
+          <select id="provider" name="provider"
+            class="w-full rounded-lg border border-gray-300 px-4 py-3 text-brand-black focus:outline-none focus:ring-2 focus:ring-green-600">
+            <option value="M365">Microsoft 365</option>
+            <option value="Google">Google</option>
+            <option value="Smtp">Other SMTP</option>
+          </select>
+        </div>
+        <button id="check-btn" type="submit"
+          class="brand-gradient rounded-full px-8 py-3 text-sm font-semibold text-white transition-all hover:opacity-90 disabled:opacity-50">
+          Check
+        </button>
+      </form>
+
+      <p id="message" class="mt-8 text-sm text-gray-700" role="status" aria-live="polite"></p>
+      <ul id="results" class="mt-4 space-y-4"></ul>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ PORTAL_BASE_URL }}>
+    (function () {
+      var form = document.getElementById('dns-form');
+      var btn = document.getElementById('check-btn');
+      var message = document.getElementById('message');
+      var results = document.getElementById('results');
+
+      function pick(obj, keys) {
+        for (var i = 0; i < keys.length; i++) {
+          var v = obj[keys[i]];
+          if (v !== undefined && v !== null && v !== '') return v;
+        }
+        return null;
+      }
+
+      function isPass(check) {
+        if (typeof check.passed === 'boolean') return check.passed;
+        var s = pick(check, ['status', 'Status', 'result']);
+        if (typeof s === 'string') return s.toLowerCase() === 'pass';
+        return false;
+      }
+
+      function addLine(parent, label, text, cls) {
+        var p = document.createElement('p');
+        p.className = cls;
+        if (label) {
+          var b = document.createElement('span');
+          b.className = 'font-medium';
+          b.textContent = label + ' ';
+          p.appendChild(b);
+        }
+        p.appendChild(document.createTextNode(String(text)));
+        parent.appendChild(p);
+      }
+
+      function render(data) {
+        var checks = Array.isArray(data) ? data : (data && Array.isArray(data.checks) ? data.checks : []);
+        if (checks.length === 0) {
+          message.textContent = 'No checks were returned. Try again.';
+          return;
+        }
+        checks.forEach(function (check) {
+          var ok = isPass(check);
+          var li = document.createElement('li');
+          li.className = 'rounded-xl border p-5 ' + (ok ? 'border-green-200 bg-green-50' : 'border-red-200 bg-red-50');
+          var head = document.createElement('p');
+          head.className = 'font-semibold text-brand-black';
+          var name = pick(check, ['name', 'Name', 'kind', 'Kind']) || 'Check';
+          var status = pick(check, ['status', 'Status']);
+          head.textContent = name + ': ' + (ok ? 'Pass' : (typeof status === 'string' && status.toLowerCase() !== 'fail' ? status : 'Fail'));
+          li.appendChild(head);
+          var found = pick(check, ['found', 'Found']);
+          var expected = pick(check, ['expected', 'Expected']);
+          var hint = pick(check, ['hint', 'fixHint', 'FixHint']);
+          if (found) addLine(li, 'Found:', found, 'mt-2 text-sm text-gray-700 break-words');
+          if (expected) addLine(li, 'Expected:', expected, 'mt-1 text-sm text-gray-700 break-words');
+          if (hint && !ok) addLine(li, 'How to fix:', hint, 'mt-2 text-sm text-gray-800');
+          results.appendChild(li);
+        });
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var domain = document.getElementById('domain').value.trim();
+        var provider = document.getElementById('provider').value;
+        results.innerHTML = '';
+        if (!domain) {
+          message.textContent = 'Enter a domain first.';
+          return;
+        }
+        btn.disabled = true;
+        message.textContent = 'Checking...';
+        var url = PORTAL_BASE_URL + '/api/dns/check?domain=' + encodeURIComponent(domain) + '&provider=' + encodeURIComponent(provider);
+        fetch(url, { method: 'GET', headers: { Accept: 'application/json' } })
+          .then(function (res) {
+            if (res.status === 400) { message.textContent = 'That domain or provider is not valid. Check the domain and try again.'; return null; }
+            if (res.status === 429) { message.textContent = 'Too many checks. Try again in a minute.'; return null; }
+            if (!res.ok) { message.textContent = 'The check failed. Try again later.'; return null; }
+            return res.json();
+          })
+          .then(function (data) {
+            if (data === null || data === undefined) return;
+            message.textContent = '';
+            render(data);
+          })
+          .catch(function () {
+            message.textContent = 'Could not reach the check service. Check your connection and try again.';
+          })
+          .finally(function () { btn.disabled = false; });
+      });
+    })();
+  </script>
+</Base>
