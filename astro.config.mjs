@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://www.sigdaddy.com',
-  integrations: [sitemap({ filter: (page) => !page.includes('/dns-check') })],
+  integrations: [sitemap({ filter: (page) => !page.includes('/dns-check') && !page.includes('/dns-setup') })],
   vite: {
     plugins: [tailwindcss()],
   },
