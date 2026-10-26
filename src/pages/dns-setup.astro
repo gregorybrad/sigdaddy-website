@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+
+const PORTAL_BASE_URL = 'https://portal.sigdaddy.com';
+---
+
+<Base title="DNS setup | SigDaddy" description="Which DNS records SigDaddy needs for Microsoft 365, Google Workspace and other mail systems, and how to check them." noindex={true}>
+  <section class="pt-32 pb-24 lg:pb-32">
+    <div class="mx-auto max-w-3xl px-6 lg:px-8">
+      <p class="text-sm font-semibold uppercase tracking-wider text-green-600 mb-3">Guides</p>
+      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-brand-black">DNS setup</h1>
+      <p class="mt-4 text-gray-600">What to publish at your DNS host for each mail system, and how to check it.</p>
+
+      <div class="mt-12 prose prose-lg prose-gray max-w-none">
+        <h2>Pick your mail system</h2>
+        <ul>
+          <li><a href="#m365">Microsoft 365</a>: no new records.</li>
+          <li><a href="#google">Google Workspace</a>: no SigDaddy records.</li>
+          <li><a href="#smtp">Other mail systems</a>: DKIM, bounce and DMARC records.</li>
+        </ul>
+
+        <h2 id="m365">Microsoft 365</h2>
+        <p>
+          Microsoft 365 keeps sending your mail, so your existing SPF, DKIM and DMARC records stay as they are.
+          Your SPF record should include <code>spf.protection.outlook.com</code>. If your SPF is managed by another
+          service (a <code>redirect=</code> to that service), make sure that service covers Microsoft 365.
+        </p>
+
+        <h2 id="google">Google Workspace</h2>
+        <p>
+          Google keeps sending your mail after SigDaddy adds the signature, so Google's own records apply and you add
+          nothing for SigDaddy. Check that you have:
+        </p>
+        <ul>
+          <li>SPF that includes <code>_spf.google.com</code>.</li>
+          <li>Google DKIM turned on in the Admin console, with its <code>google._domainkey</code> record published.</li>
+          <li>A DMARC record with <code>p=quarantine</code> or <code>p=reject</code> once your mail passes.</li>
+        </ul>
+        <p>The routing rule in the Google Admin console is set up during onboarding; we walk you through it.</p>
+
+        <h2 id="smtp">Other mail systems</h2>
+        <p>
+          SigDaddy sends your mail directly, signed with your own domain's DKIM key. Add your domain under
+          <strong>Sending setup</strong> in the <a href={`${PORTAL_BASE_URL}/sending-setup`}>SigDaddy portal</a>.
+          The portal creates your DKIM key and shows the exact values. You publish:
+        </p>
+        <div class="not-prose overflow-x-auto">
+          <table class="min-w-full text-sm border border-gray-200 rounded-lg">
+            <thead class="bg-gray-50 text-left text-gray-600">
+              <tr><th class="p-3">Type</th><th class="p-3">Name</th><th class="p-3">Value</th><th class="p-3">Why</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr><td class="p-3 font-mono">TXT</td><td class="p-3 font-mono">sd1._domainkey.yourdomain.com</td><td class="p-3">Shown in the portal (starts <code>v=DKIM1; k=rsa; p=</code>)</td><td class="p-3">DKIM: proves the mail is yours</td></tr>
+              <tr><td class="p-3 font-mono">CNAME</td><td class="p-3 font-mono">bounce.yourdomain.com</td><td class="p-3 font-mono">bounce.sigdaddy.com</td><td class="p-3">Bounces come back to us</td></tr>
+              <tr><td class="p-3 font-mono">TXT</td><td class="p-3 font-mono">_dmarc.yourdomain.com</td><td class="p-3 font-mono">v=DMARC1; p=quarantine; aspf=r</td><td class="p-3">DMARC policy</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <strong>SPF:</strong> do not add a SigDaddy SPF include yet. We will tell you when to add
+          <code>include:_spf.sigdaddy.com</code>. Until then your mail passes DMARC through DKIM.
+        </p>
+        <p>
+          <strong>DMARC:</strong> if you already have a DMARC record, keep it and make sure it does not use
+          <code>aspf=s</code>. Strict SPF alignment fails because bounces use the <code>bounce.</code> subdomain.
+        </p>
+        <p>Your users then send through <code>submit.sigdaddy.com</code>, port 587, STARTTLS, with the login the portal gives them.</p>
+
+        <h2>Check your records</h2>
+        <ul>
+          <li>In the portal: <strong>Sending setup</strong>, then <strong>Check DNS now</strong>. Your domain shows <em>Verified</em> once DKIM and the bounce record pass and DMARC does not fail.</li>
+          <li>Anyone can run the public <a href="/dns-check">DNS check</a> for a domain.</li>
+        </ul>
+
+        <h2>Common problems</h2>
+        <dl>
+          <dt><strong>"The record is still propagating"</strong></dt>
+          <dd>Two public DNS resolvers gave different answers. New records can take up to a few hours to reach every resolver. Check again later.</dd>
+          <dt><strong>Too many SPF lookups</strong></dt>
+          <dd>SPF allows ten DNS lookups in total, counting every <code>include</code>, <code>a</code>, <code>mx</code> and <code>redirect</code>, including those inside included records. Remove services you no longer use.</dd>
+          <dt><strong>SPF uses redirect=</strong></dt>
+          <dd>We follow the redirect and check the record it points to. The fix goes in that record, or you replace the redirect with your own record.</dd>
+          <dt><strong>DMARC policy is none</strong></dt>
+          <dd><code>p=none</code> only reports. Move to <code>p=quarantine</code> once your reports show your mail passing.</dd>
+          <dt><strong>DKIM does not match</strong></dt>
+          <dd>The TXT value must be copied exactly, as one line. Some DNS hosts add the domain to the name for you: enter only <code>sd1._domainkey</code> there.</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+</Base>
